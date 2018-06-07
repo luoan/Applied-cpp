@@ -1,0 +1,13 @@
+all: picture
+
+picture: main.o image.o
+	g++ -o picture main.o image.o
+
+main.o: main.cpp image.h
+	g++ -c main.cpp
+
+image.o: image.cpp image.h ptr.hpp
+	g++ -c image.cpp
+
+clean:
+	rm *.o picture
